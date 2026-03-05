@@ -18,7 +18,11 @@
     <material name="black">
         <color rgba="0 0 0 1"/>
     </material>
-    <!-- Base Link -->
+
+    <material name="red">
+        <color rgba="1 0 0 1"/>
+    </material>
+
     <link name="base_link">
     </link>
 
