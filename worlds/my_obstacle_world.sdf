@@ -1,0 +1,139 @@
+<?xml version="1.0" ?>
+<sdf version='1.10'>
+  <world name='obstacle_course'>
+    <physics name='1ms' type='ignored'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <plugin name='gz::sim::systems::Physics' filename='gz-sim-physics-system'/>
+    <plugin name='gz::sim::systems::UserCommands' filename='gz-sim-user-commands-system'/>
+    <plugin name='gz::sim::systems::SceneBroadcaster' filename='gz-sim-scene-broadcaster-system'/>
+        <plugin name='gz::sim::systems::Sensors' filename='gz-sim-sensors-system'>
+      <!-- <render_engine>ogre2</render_engine> -->
+      <render_engine>ogre</render_engine>
+    </plugin>
+    <plugin name='gz::sim::systems::Contact' filename='gz-sim-contact-system'/>
+    <gravity>0 0 -9.8000000000000007</gravity>
+    <magnetic_field>5.5644999999999998e-06 2.2875999999999999e-05 -4.2388000000000001e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+    <scene>
+      <ambient>0.400000006 0.400000006 0.400000006 1</ambient>
+      <background>0.699999988 0.699999988 0.699999988 1</background>
+      <shadows>true</shadows>
+    </scene>
+    <model name='ground_plane'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.800000012 0.800000012 0.800000012 1</ambient>
+            <diffuse>0.800000012 0.800000012 0.800000012 1</diffuse>
+            <specular>0.800000012 0.800000012 0.800000012 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>0 0 0 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/construction cone</uri>
+      <name>Construction Cone_1</name>
+      <pose>0.64000000000000001 1.97 -1.3379350698519699e-11 -1.2468324983583301e-21 -3.2526065174565129e-22 2.0277277551684459e-43</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/construction cone</uri>
+      <name>Construction Cone_2</name>
+      <pose>-2.0800000000000001 1.8999999999999999 -1.3379350698519699e-11 1.8973538018496329e-21 -1.9786689647860455e-21 -1.8771175414693403e-42</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/construction cone</uri>
+      <name>Construction Cone_3</name>
+      <pose>-3.6499999999999999 0.77000000000000002 -1.3379350698519699e-11 7.0473141211557794e-22 2.7105054312137611e-23 9.5508916004310867e-45</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/construction cone</uri>
+      <name>Construction Cone_4</name>
+      <pose>-3.2000000000000002 -1.75 -1.3379350696784975e-11 2.0599841277224584e-21 -1.8973538018496329e-21 -1.954259358242053e-42</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/construction barrel</uri>
+      <name>Construction Barrel_1</name>
+      <pose>2.52 -1.1000000000000001 -2.0476840415992182e-11 1.098676698843475e-11 -2.081005217317066e-11 6.5699678389300827e-20</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/construction barrel</uri>
+      <name>Construction Barrel_2</name>
+      <pose>2.4700000000000002 0.84999999999999998 -1.8856596822186545e-11 1.0471999164207765e-11 -1.2150535035176877e-11 4.9519969740806681e-19</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/jersey barrier</uri>
+      <name>jersey_barrier</name>
+      <pose>0.68000000000000005 -2.9300000000000002 0 0 0 0</pose>
+    </include>
+    <!-- <include>
+      <uri>file://<urdf-string></uri>
+      <name>study-bot</name>
+      <pose>2.0005249740955379e-09 7.0456591663424771e-20 0.049999162530443446 1.0326876981959033e-18 -3.6571161096923352e-08 -5.2614801279986673e-20</pose>
+    </include> -->
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/construction cone</uri>
+      <name>Construction Cone_3_1</name>
+      <pose>-2.2530481909182045 -0.31015493661871396 -2.6624600430597001e-11 7.0473102275907852e-22 -8.673616925247719e-22 7.626081691568995e-33</pose>
+    </include>
+    <light name='sun' type='directional'>
+      <pose>0 0 10 0 0 0</pose>
+      <cast_shadows>true</cast_shadows>
+      <intensity>1</intensity>
+      <direction>-0.5 0.10000000000000001 -0.90000000000000002</direction>
+      <diffuse>0.800000012 0.800000012 0.800000012 1</diffuse>
+      <specular>0.200000003 0.200000003 0.200000003 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <linear>0.01</linear>
+        <constant>0.90000000000000002</constant>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+  </world>
+</sdf>

@@ -30,7 +30,8 @@ def generate_launch_description():
 
     world_arg = DeclareLaunchArgument(
         'world',
-        default_value="empty.sdf",
+        # default_value="empty.sdf",
+        default_value="src/study-bot/worlds/my_obstacle_world.sdf",
         description='World to load'
     )
 
@@ -48,7 +49,6 @@ def generate_launch_description():
                                    '-z', '0.1'],
                         output='screen')
     
-
     # Launch the ROS-Gazebo bridge for normal topics
     bridge_params = os.path.join(get_package_share_directory(package_name),'config','gz_bridge.yaml')
     ros_gz_bridge = Node(
@@ -61,6 +61,13 @@ def generate_launch_description():
         ]
     )
 
+    ros_gz_image_bridge = Node(
+        package="ros_gz_image",
+        executable="image_bridge",
+        arguments=["/camera/image_raw"]
+    )
+
+
 
 
     # Launch them all!
@@ -70,4 +77,5 @@ def generate_launch_description():
         gazebo,
         spawn_entity,
         ros_gz_bridge,
+        ros_gz_image_bridge,
     ])
